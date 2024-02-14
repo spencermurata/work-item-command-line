@@ -154,4 +154,7 @@ public interface IWorkItemCommandLineConstants {
 	public static final String PARAMETER_SHARING_TARGETS_EXAMPLE = "\"JKE Banking(Change Management),JKE Banking(Change Management)/Business Recovery Matters\"";
 
 	public static final String UNASSIGNED_USER = "Unassigned";
+
+	//Global logging category for all commands.
+	public static final String WORK_ITEM_COMMAND_LOGGER = "workitem.commandline.logger";
 }

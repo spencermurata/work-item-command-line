@@ -13,6 +13,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 
 import com.ibm.team.process.client.IProcessClientService;
@@ -35,6 +37,8 @@ import com.ibm.team.repository.common.UUID;
  */
 public class ProcessAreaUtil {
 
+	private static Logger fLogger = LogManager.getLogger();
+	
 	public static final String PATH_SEPARATOR = "/";
 
 	/**
@@ -146,7 +150,7 @@ public class ProcessAreaUtil {
 			URI nameUri = new URI(url.getProtocol(), url.getUserInfo(), IDN.toASCII(url.getHost()), url.getPort(), url.getPath(), url.getQuery(), url.getRef());
 			String nameEncodedURLQuery=nameUri.toASCIIString().split("\\?")[1];
 		    encodedName =  nameEncodedURLQuery.split("=")[1];
-			System.out.println("URL Encoded Project Area Name: " + encodedName);
+			fLogger.debug("URL Encoded Project Area Name: " + encodedName);
 		} catch (MalformedURLException e) {
 			// will never happen
 			e.printStackTrace();
